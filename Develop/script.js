@@ -1,9 +1,16 @@
 // Assignment code here
+function generatePassword() {
+  // window.prompt for password length from 8 to 128 characters
+   
+  // window.prompt for character selections (1 each), lowercase, uppercase, numbers, symbols
 
-function password(characters) {
-  console.log("Hello " + name);
+  // window.confirm for each character selection
+
+  // use selected criteria to generate password
+
+  // return value for generated password to write into 
+
 }
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
