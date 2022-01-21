@@ -1,16 +1,31 @@
 // Assignment code here
+window.alert("Press 'Generate Password' to get started.")
+
 function generatePassword() {
-  // window.prompt for password length from 8 to 128 characters
+  console.log("You are clicking me.")
+  // PASSWORD LENGTH FUNCTION
+  var lengthText = window.prompt("Choose a password length from 8 to 128 characters.");
+  var passwordLength = parseInt(lengthText);
    
-  // window.prompt for character selections (1 each), lowercase, uppercase, numbers, symbols
+  console.log(lengthText);
+  console.log(passwordLength);
 
-  // window.confirm for each character selection
+    if  (lengthText === "" || lengthText === null || passwordLength < 8 || passwordLength > 128) {
+      window.alert("Please enter a valid response. Try again");
+      generatePassword();
+    } else {
+      window.alert("You have chosen a password length of " + passwordLength + " characters.");
+    }
+        
+        // window.prompt for character selections (1 each), lowercase, uppercase, numbers, symbols
 
-  // use selected criteria to generate password
+        // window.confirm for each character selection
 
-  // return value for generated password to write into 
+        // use selected criteria to generate password
 
-}
+        // return value for generated password to write into 
+      
+};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -19,9 +34,9 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+    
   passwordText.value = password;
-
+  
 }
 
 // Add event listener to generate button
