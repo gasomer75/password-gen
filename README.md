@@ -1,7 +1,7 @@
 # Password Generator Project
 
 ## Link:
-https://placeholder.link
+https://gasomer75.github.io/password-gen/
 
 ## Purpose
 
