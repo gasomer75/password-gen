@@ -1,9 +1,11 @@
 // Assignment code here
-var randomNumber = function(min, max) {
-  var character = Math.floor(Math.random() * (max - min + 1) + min);
 
-  return character;
-};
+// VARIABLES FOR AVAILABLE CHARACTERS
+var low = "abcdefghijklmnopqrstuvwxyz";
+var upp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var num = "0123456789";
+var sym = "!@#$%^&*()/\*_";
+var chosen = "";
 
 // START HERE WITH PAGE INTRO
 window.alert("Press 'Generate Password' to get started.");
@@ -11,60 +13,59 @@ window.alert("Press 'Generate Password' to get started.");
 // FUNCTION TO START PROMPTS AND GENERATE PASSWORD
 function generatePassword() {
   
-  // PASSWORD LENGTH FUNCTION
+  // SET PASSWORD LENGTH WITH VARIABLE AND WINDOW PROMPT
   var lengthText = window.prompt("Choose a password length from 8 to 128 characters.");
   var passwordLength = parseInt(lengthText);
 
     if  (lengthText === "" || lengthText === null || passwordLength < 8 || passwordLength > 128) {
       window.alert("Please enter a valid response. Try again");
-      generatePassword();
+      return generatePassword();
     } else {
       window.alert("You have chosen a password length of " + passwordLength + " characters.");
     }
-  console.log(passwordLength);
 
-  // FUNCTIONS TO DETERMINE PASSWORD CHARACTER CRITERIA
-  var characterChoices = function() {
+  // VARIABLES TO DETERMINE PASSWORD CHARACTER CRITERIA
+  function charOptions() {
+
     var lowercase = window.confirm("To include lower case letters in your password click 'OK', otherwise click 'CANCEL'.");
       if (!lowercase) {
         window.alert("You WILL NOT have lower case letters in your password");
-      } else {
+      } else if (lowercase) {
         window.alert("You WILL have lower case letters in your password.");
-        
+        chosen = chosen + low;
       }
-      console.log(lowercase);
-
-      var uppercase = window.confirm("To include UPPER case letters in your password click 'OK', otherwise click 'CANCEL'.");
+    
+    var uppercase = window.confirm("To include UPPER case letters in your password click 'OK', otherwise click 'CANCEL'.");
       if (!uppercase) {
         window.alert("You WILL NOT have UPPER case letters in your password");
-      } else {
+      } else if(uppercase) {
         window.alert("You WILL have UPPER case letters in your password.");
-        
+        chosen = chosen + upp;
       }
-      console.log(uppercase);
 
-      var numbers = window.confirm("To include numbers in your password click 'OK', otherwise click 'CANCEL'.");
+    var numbers = window.confirm("To include numbers in your password click 'OK', otherwise click 'CANCEL'.");
       if (!numbers) {
         window.alert("You WILL NOT have numbers in your password");
-      } else {
+      } else if(numbers) {
         window.alert("You WILL have numbers in your password.");
-        
+        chosen = chosen + num;
       }
-      console.log(numbers);
 
-      var symbols = window.confirm("To include special symbols in your password click 'OK', otherwise click 'CANCEL'.");
+    var symbols = window.confirm("To include special symbols in your password click 'OK', otherwise click 'CANCEL'.");
       if (!symbols) {
         window.alert("You WILL NOT have special symbols in your password");
-      } else {
-        window.alert("You WILL have special symbols in your password.");
-        
+      } else if (symbols) {
+        window.alert("You WILL have special symbols in your password."); 
+        chosen = chosen + sym;
       }
-      console.log(symbols);
-  }
-  characterChoices();
 
-  // FUNCTION TO GENERATE NEW PASSWORD BASED ON SELECTED CRITERIA
-  
+      if (chosen === null || chosen === "") {
+        window.alert("You must choose at least one character type to proceed. Try again.")
+        return charOptions();
+      }
+  };
+
+  charOptions();
 };
 
 // Get references to the #generate element
