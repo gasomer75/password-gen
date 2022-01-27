@@ -18,7 +18,7 @@ function generatePassword() {
   var passwordLength = parseInt(lengthText);
 
     if  (lengthText === "" || lengthText === null || passwordLength < 8 || passwordLength > 128) {
-      window.alert("Please enter a valid response. Try again");
+      window.alert("You must choose a password length from 8 to 128 characters. Try again");
       return generatePassword();
     } else {
       window.alert("You have chosen a password length of " + passwordLength + " characters.");
@@ -26,6 +26,7 @@ function generatePassword() {
 
   // VARIABLES TO DETERMINE PASSWORD CHARACTER CRITERIA
   function charOptions() {
+    chosen = "";
 
     var lowercase = window.confirm("To include lower case letters in your password click 'OK', otherwise click 'CANCEL'.");
       if (!lowercase) {
@@ -66,6 +67,14 @@ function generatePassword() {
   };
 
   charOptions();
+
+  // FUNCTION TO GENERATE NEW PASSWORD BASED ON SELECTED CRITERIA
+  var newPass = "";
+    for (let i = 0; i < passwordLength; i++) {
+        var randomNum = Math.floor(Math.random() * chosen.length);
+        newPass += chosen.substring(randomNum, randomNum + 1);
+    }
+    return newPass;
 };
 
 // Get references to the #generate element
