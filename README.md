@@ -28,5 +28,8 @@ To build a password generator using an existing html and css template and adding
 
 * When generate password button is clicked, a password using the selected criteria will be generated and visible in an alert window or written to the page
 
+### Page Screenshot
+![Password Generator](/assets/images/screenshot.png "Screenshot of the password generator")
+
 #### Created By:
 Geoff Somer for UC Davis Coding Boot Camp, 2022
