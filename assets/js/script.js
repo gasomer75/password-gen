@@ -17,11 +17,11 @@ function generatePassword() {
   var lengthText = window.prompt("Choose a password length from 8 to 128 characters.");
   var passwordLength = parseInt(lengthText);
 
-    if  (lengthText === "" || lengthText === null || passwordLength < 8 || passwordLength > 128) {
+    if (passwordLength >= 8 && passwordLength <= 128) {
+      window.alert("You have chosen a password length of " + passwordLength + " characters.");
+    } else {
       window.alert("You must choose a password length from 8 to 128 characters. Try again");
       return generatePassword();
-    } else {
-      window.alert("You have chosen a password length of " + passwordLength + " characters.");
     }
 
   // VARIABLES TO DETERMINE PASSWORD CHARACTER CRITERIA
