@@ -8,7 +8,7 @@ var sym = "!@#$%^&*()/\*_";
 var chosen = "";
 
 // START HERE WITH PAGE INTRO
-window.alert("Press 'Generate Password' to get started.");
+// window.alert("Press 'Generate Password' to get started.");
 
 // FUNCTION TO START PROMPTS AND GENERATE PASSWORD
 function generatePassword() {
